@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Brief: StudyRoute</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --accent: #0ea5e9;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --warning: #f59e0b;
+      --warning-light: #fffbeb;
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 860px;
+      margin: 48px auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #0ea5e9 100%);
+      padding: 48px 56px 40px;
+      color: white;
+    }
+    .header-meta {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .header .tagline {
+      font-size: 17px;
+      opacity: 0.85;
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+    .badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    /* Content */
+    .content { padding: 0 56px 56px; }
+    /* Section */
+    .section {
+      padding: 40px 0 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+    .section p {
+      color: #334155;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    /* Callout */
+    .callout {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 15px;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+    /* Grid */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .card p, .card li { font-size: 13px; color: #475569; line-height: 1.6; }
+    .card ul { padding-left: 16px; }
+    /* Problem list */
+    .problem-list { list-style: none; margin: 16px 0; }
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: #334155;
+    }
+    .problem-list li:last-child { border-bottom: none; }
+    .problem-list .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fee2e2;
+      color: var(--danger);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+    /* Persona */
+    .persona {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #bae6fd;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .persona-name { font-weight: 700; font-size: 15px; color: #0369a1; margin-bottom: 4px; }
+    .persona-desc { font-size: 13px; color: #475569; }
+    /* How it works flow */
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+      padding: 14px 10px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e40af;
+    }
+    .flow-arrow {
+      font-size: 20px;
+      color: var(--muted);
+      padding: 0 6px;
+      flex-shrink: 0;
+    }
+    /* Differentiator table */
+    .diff-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+    .diff-table th {
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .diff-table th:first-child { border-radius: 8px 0 0 0; }
+    .diff-table th:last-child { border-radius: 0 8px 0 0; }
+    .diff-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); color: #334155; }
+    .diff-table tr:last-child td { border-bottom: none; }
+    .diff-table tr:nth-child(even) td { background: #f8fafc; }
+    .yes { color: var(--success); font-weight: 700; }
+    .no { color: var(--danger); font-weight: 700; }
+    /* Metrics */
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+    .metric {
+      text-align: center;
+      padding: 16px 10px;
+      background: var(--primary-light);
+      border-radius: 10px;
+    }
+    .metric-value { font-size: 26px; font-weight: 800; color: var(--primary); }
+    .metric-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    /* Scope */
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .scope-box {
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .scope-box.in {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+    }
+    .scope-box.out {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+    }
+    .scope-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+    .scope-box.in h4 { color: #166534; }
+    .scope-box.out h4 { color: #991b1b; }
+    .scope-box ul { padding-left: 16px; }
+    .scope-box li { font-size: 13px; color: #475569; margin-bottom: 4px; }
+    /* Risk note */
+    .risk-note {
+      background: var(--warning-light);
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #92400e;
+      margin: 16px 0;
+    }
+    .risk-note strong { color: #78350f; }
+    /* Vision */
+    .vision-timeline { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 24px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .timeline-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .timeline-content p { font-size: 13px; color: var(--muted); }
+    /* Footer */
+    .footer {
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      padding: 20px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-meta">Product Brief · Draft v1.0 · 2026-04-21</div>
+    <h1>StudyRoute</h1>
+    <div class="tagline">대한민국 학습 패턴 데이터 플랫폼</div>
+    <div class="badges">
+      <span class="badge">B2C 플랫폼</span>
+      <span class="badge">교육 데이터</span>
+      <span class="badge">MVP · 강남/송파/분당</span>
+      <span class="badge">Glassdoor 모델</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+      <div class="section-label">Executive Summary</div>
+      <h2>왜 StudyRoute인가</h2>
+      <p>
+        대한민국 학부모는 세계 최고 수준의 교육열을 가졌지만, 정작 "잘하는 아이들이 어떻게 공부하는가"에 대한 데이터는 없다. 맘카페와 커뮤니티에는 정보가 넘치지만 검증되지 않았고, 워킹맘에겐 접근조차 어렵다. 학원 홍보는 넘쳐나지만 실제 다니는 아이들의 패턴은 보이지 않는다.
+      </p>
+      <p>
+        StudyRoute는 이 공백을 채운다. 학부모가 직접 입력한 익명 데이터를 기반으로 지역·학년·과목별 실제 학습 패턴을 통계로 제공하는 플랫폼이다. "송파 초5, 수학 잘하는 아이들 — 주 평균 공부 시간 2.3시간, 선행 1학기 이상 68%." 이런 데이터가 존재한 적이 없었다.
+      </p>
+      <div class="callout">
+        "존재하는 니즈 + 없는 제품" — 수요는 검증됐다. 시장만 기다리고 있다.
+      </div>
+    </div>
+
+    <!-- THE PROBLEM -->
+    <div class="section">
+      <div class="section-label">The Problem</div>
+      <h2>지금 학부모들이 겪는 것</h2>
+      <ul class="problem-list">
+        <li>
+          <div class="icon">✗</div>
+          <div><strong>정보는 있지만 데이터가 없다.</strong> 맘카페, 블로그, 카카오톡 단톡방에 교육 정보는 넘치지만 모두 개인 경험담이다. 집계되지 않고, 검증되지 않으며, 내 상황에 맞는지 알 수 없다.</div>
+        </li>
+        <li>
+          <div class="icon">✗</div>
+          <div><strong>워킹맘은 정보 접근 자체가 어렵다.</strong> 맘카페 눈팅, 학원 설명회 참석, 주변 엄마들 네트워크 — 이 모든 것에 시간이 있어야 한다. 결정적인 정보 격차가 존재한다.</div>
+        </li>
+        <li>
+          <div class="icon">✗</div>
+          <div><strong>학원 정보가 광고로 오염되어 있다.</strong> 네이버 검색, 학원 앱, 교육 커뮤니티 — 모두 학원 업체 이해관계가 개입돼 있다. "객관적인" 학원 정보를 신뢰하기 어렵다.</div>
+        </li>
+        <li>
+          <div class="icon">✗</div>
+          <div><strong>"잘하는 아이들의 공부 방법" 데이터가 없다.</strong> 결과(명문대 합격)는 알지만 과정(어떤 패턴으로 공부했는지)은 아무도 모른다. 의사결정의 근거가 없다.</div>
+        </li>
+      </ul>
+
+      <div class="persona">
+        <div class="persona-name">핵심 페르소나 — 5세 자녀를 둔 워킹맘</div>
+        <div class="persona-desc">영어유치원 입학을 앞두고 있다. 주변 엄마들에게 물어봤지만 의견이 제각각이다. 직접 학원 설명회를 다닐 시간이 없고, 맘카페 정보는 믿기 어렵다. "우리 동네 영어유치원 중에 실제 아이들이 많이 다니는 곳이 어딘지, 다니고 나서 어떤지"를 알고 싶다. 지금 그 정보를 얻을 방법이 없다.</div>
+      </div>
+    </div>
+
+    <!-- THE SOLUTION -->
+    <div class="section">
+      <div class="section-label">The Solution</div>
+      <h2>StudyRoute가 하는 것</h2>
+      <p>부모가 직접 입력한 익명 데이터를 집계해 학습 패턴 통계를 제공한다. 학원 추천 서비스가 아니다. 광고 기반 순위도 아니다. <strong>부모의 데이터를, 부모를 위한 통계로.</strong></p>
+
+      <div class="flow">
+        <div class="flow-step">① 내 아이 데이터 입력<br/><span style="font-weight:400;color:#3b82f6">1~2분 설문</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">② 통계 열람 권한<br/><span style="font-weight:400;color:#3b82f6">Glassdoor 모델</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">③ 지역·학년·과목 필터<br/><span style="font-weight:400;color:#3b82f6">내 상황에 맞게</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">④ 근처 학원 + 실제 통계<br/><span style="font-weight:400;color:#3b82f6">데이터 기반 결정</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>📊 학습 패턴 통계</h4>
+          <ul>
+            <li>과목별 잘하는 아이들의 공부 시간 분포</li>
+            <li>선행 수준 분포 (수학 몇 학기 선행?)</li>
+            <li>학원 vs 자기주도 비율</li>
+            <li>영어유치원 → 이후 영어 유지 비율</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>📍 위치 기반 학원 디렉토리</h4>
+          <ul>
+            <li>내 위치 기준 근처 학원 목록</li>
+            <li>학원별 실제 응답자 수 표시</li>
+            <li>영어유치원 전용 필터</li>
+            <li>공공데이터 기반 (광고 아님)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-note">
+        <strong>⚡ 설계 원칙:</strong> "잘하는 아이들"의 기준은 부모가 과목별로 직접 선택한다. "상위권이냐"고 묻지 않는다. 본인이 자신 있는 과목만 입력 — 편향을 줄이고 설문 피로도를 낮춘다. 모든 통계 카드에는 응답자 수(n)를 항상 표시해 신뢰도를 투명하게 공개한다.
+      </div>
+    </div>
+
+    <!-- WHAT MAKES THIS DIFFERENT -->
+    <div class="section">
+      <div class="section-label">Differentiation</div>
+      <h2>왜 이 접근이 다른가</h2>
+      <table class="diff-table">
+        <thead>
+          <tr>
+            <th>기준</th>
+            <th>맘카페/커뮤니티</th>
+            <th>학원 앱/플랫폼</th>
+            <th>StudyRoute</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>데이터 출처</td>
+            <td>개인 경험담</td>
+            <td>학원 제공</td>
+            <td class="yes">부모 직접 입력</td>
+          </tr>
+          <tr>
+            <td>광고 영향</td>
+            <td>간접적</td>
+            <td class="no">직접 (광고비 순위)</td>
+            <td class="yes">데이터와 완전 분리</td>
+          </tr>
+          <tr>
+            <td>집계/통계</td>
+            <td class="no">없음</td>
+            <td class="no">없음</td>
+            <td class="yes">핵심 가치</td>
+          </tr>
+          <tr>
+            <td>과정 데이터</td>
+            <td class="no">결과 중심</td>
+            <td class="no">없음</td>
+            <td class="yes">공부 방법/시간/패턴</td>
+          </tr>
+          <tr>
+            <td>접근성</td>
+            <td>네트워크 필요</td>
+            <td>누구나</td>
+            <td class="yes">입력 → 즉시 열람</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;color:var(--muted);margin-top:-8px">참고 모델: 잡플래닛/블라인드 — 사용자 제공 데이터로 신뢰 구축, 광고는 별도 영역에서 수익화.</p>
+    </div>
+
+    <!-- WHO THIS SERVES -->
+    <div class="section">
+      <div class="section-label">Who This Serves</div>
+      <h2>사용자</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h4>🎯 핵심 사용자</h4>
+          <p>초등·미취학 자녀를 둔 부모 (특히 워킹맘). 강남/송파/분당 거주. 교육 결정을 앞두고 있지만 검증된 정보원이 없다.</p>
+        </div>
+        <div class="card">
+          <h4>📤 데이터 제공자</h4>
+          <p>내 아이 공부 정보를 입력하는 부모. 소비자이기도 하다. 1~2분 설문 후 즉시 통계 열람 — 입력이 곧 혜택.</p>
+        </div>
+        <div class="card">
+          <h4>💰 광고주</h4>
+          <p>교육 콘텐츠 사업자, 교재사, 에듀테크. 높은 교육 관심도 타겟. 데이터와 명확히 분리된 광고 슬롯.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS CRITERIA -->
+    <div class="section">
+      <div class="section-label">Success Criteria</div>
+      <h2>이게 작동하는지 어떻게 알 수 있나</h2>
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value">500명</div>
+          <div class="metric-label">Phase 1 목표 응답자<br/>(강남/송파/분당)</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">70%+</div>
+          <div class="metric-label">설문 완료율<br/>(이탈 없이 제출)</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">n≥15</div>
+          <div class="metric-label">통계 카드 표시 기준<br/>(신뢰도 임계값)</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">1,000</div>
+          <div class="metric-label">6개월 내 MAU<br/>목표</div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:8px">
+        <div class="card">
+          <h4>사용자 성공 지표</h4>
+          <ul>
+            <li>설문 완료 후 통계 페이지 체류 시간</li>
+            <li>재방문율 (학기 초 급증 여부)</li>
+            <li>입력 후 학원 디렉토리 클릭률</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>데이터 품질 지표</h4>
+          <ul>
+            <li>n≥15 이상 통계 카드 수</li>
+            <li>지역별 세그먼트 커버리지</li>
+            <li>중복 제출 비율 (기기 기반 탐지)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCOPE -->
+    <div class="section">
+      <div class="section-label">Scope</div>
+      <h2>MVP 범위</h2>
+      <div class="scope-grid">
+        <div class="scope-box in">
+          <h4>✅ MVP에 포함</h4>
+          <ul>
+            <li>강남 / 송파 / 분당 지역</li>
+            <li>미취학·초등 대상</li>
+            <li>1~2분 설문 (잘하는 과목 선택형)</li>
+            <li>학원 디렉토리 (공공데이터 + 지오코딩)</li>
+            <li>통계 카드 (n수 항상 표시)</li>
+            <li>n&lt;5 완전 비공개 (프라이버시)</li>
+            <li>기기 기반 중복 방지</li>
+            <li>개인정보처리방침 + 동의 체크박스</li>
+            <li>광고 슬롯 (데이터와 명확히 구분)</li>
+          </ul>
+        </div>
+        <div class="scope-box out">
+          <h4>❌ MVP 이후로 연기</h4>
+          <ul>
+            <li>전국 지역 확장</li>
+            <li>중학교 / 고등학교</li>
+            <li>소셜 로그인 / 계정 시스템</li>
+            <li>세그먼트 자동 롤업</li>
+            <li>종단 데이터 추적 (연간 변화)</li>
+            <li>B2B 데이터 라이선싱</li>
+            <li>앱 출시 (웹 우선)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-note">
+        <strong>⚡ 치킨앤에그 전략:</strong> MVP 초기 100명은 통계 카드 노출이 어렵다 (지역×학년 분산 시 n&lt;15). 초기에는 구글폼으로 데이터 먼저 수집 → 300~500명 확보 후 플랫폼 오픈. 맘카페·당근 커뮤니티 집중 공략으로 특정 세그먼트(송파 초등 수학 등) 먼저 채운다.
+      </div>
+    </div>
+
+    <!-- REVENUE MODEL -->
+    <div class="section">
+      <div class="section-label">Revenue Model</div>
+      <h2>수익 구조</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h4>📰 네이티브 광고</h4>
+          <p>피드 중간 삽입. 교육 콘텐츠/서비스 광고. 데이터 카드와 시각적으로 명확히 구분.</p>
+        </div>
+        <div class="card">
+          <h4>🖼 배너 광고</h4>
+          <p>교육 관련 브랜드 노출. 학기 초/입학 시즌 단가 프리미엄 기대.</p>
+        </div>
+        <div class="card">
+          <h4>📦 데이터 라이선싱 (이후)</h4>
+          <p>익명 집계 데이터를 교육 연구기관·출판사에 제공. 개인 식별 불가 수준.</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:4px">핵심 원칙: 광고가 데이터 통계에 어떠한 영향도 미치지 않는다. 학원 업체의 광고비가 통계 순위에 반영되는 구조 일절 금지.</p>
+    </div>
+
+    <!-- VISION -->
+    <div class="section">
+      <div class="section-label">Vision</div>
+      <h2>StudyRoute가 3년 후 되고 싶은 것</h2>
+      <div class="vision-timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">지금</div>
+          <div class="timeline-content">
+            <h4>강남/송파/분당 학습 패턴 데이터 허브</h4>
+            <p>특정 지역 학부모 커뮤니티의 신뢰를 얻는다. 맘카페 대신 StudyRoute를 여는 습관을 만든다.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">1년</div>
+          <div class="timeline-content">
+            <h4>수도권 전역 + 종단 데이터 확보</h4>
+            <p>"영어유치원 다닌 아이, 초등 3학년 때 영어 수준은?" — 시간 흐름에 따른 패턴 데이터가 생기기 시작한다.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">3년</div>
+          <div class="timeline-content">
+            <h4>대한민국 학습 패턴 데이터베이스</h4>
+            <p>학부모가 교육 결정을 데이터로 내리는 것이 당연해지는 세상. 교육 연구기관이 StudyRoute 데이터를 인용한다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <div class="footer">
+    <span>StudyRoute · Product Brief v1.0 · Draft</span>
+    <span>작성: Mary (BMAD Analyst) · 2026-04-21</span>
+  </div>
+
+</div>
+</body>
+</html>
