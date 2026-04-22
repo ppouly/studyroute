@@ -241,6 +241,20 @@
       margin: 16px 0;
     }
     .risk-note strong { color: #78350f; }
+    /* Tier table */
+    .tier-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+    .tier-table th {
+      background: #1e40af;
+      color: white;
+      padding: 9px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .tier-table th:first-child { border-radius: 8px 0 0 0; }
+    .tier-table th:last-child { border-radius: 0 8px 0 0; }
+    .tier-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: #334155; }
+    .tier-table tr:last-child td { border-bottom: none; }
+    .tier-table tr:nth-child(even) td { background: #f8fafc; }
     /* Vision */
     .vision-timeline { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
     .timeline-item {
@@ -293,7 +307,7 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-meta">Product Brief · Draft v1.0 · 2026-04-21</div>
+    <div class="header-meta">Product Brief · Draft v1.1 · 2026-04-22</div>
     <h1>StudyRoute</h1>
     <div class="tagline">대한민국 학습 패턴 데이터 플랫폼</div>
     <div class="badges">
@@ -314,7 +328,7 @@
         대한민국 학부모는 세계 최고 수준의 교육열을 가졌지만, 정작 "잘하는 아이들이 어떻게 공부하는가"에 대한 데이터는 없다. 맘카페와 커뮤니티에는 정보가 넘치지만 검증되지 않았고, 워킹맘에겐 접근조차 어렵다. 학원 홍보는 넘쳐나지만 실제 다니는 아이들의 패턴은 보이지 않는다.
       </p>
       <p>
-        StudyRoute는 이 공백을 채운다. 학부모가 직접 입력한 익명 데이터를 기반으로 지역·학년·과목별 실제 학습 패턴을 통계로 제공하는 플랫폼이다. "송파 초5, 수학 잘하는 아이들 — 주 평균 공부 시간 2.3시간, 선행 1학기 이상 68%." 이런 데이터가 존재한 적이 없었다.
+        StudyRoute는 이 공백을 채운다. 학부모가 직접 입력한 익명 데이터를 기반으로 지역·학년·과목별 실제 학습 패턴을 통계로 제공하는 플랫폼이다. "송파 초3, 영어 잘하는 아이들 — 학원 이용률 84%, 주 평균 3회 (n=19)." 이런 데이터가 한국에 존재한 적이 없었다.
       </p>
       <div class="callout">
         "존재하는 니즈 + 없는 제품" — 수요는 검증됐다. 시장만 기다리고 있다.
@@ -345,8 +359,8 @@
       </ul>
 
       <div class="persona">
-        <div class="persona-name">핵심 페르소나 — 5세 자녀를 둔 워킹맘</div>
-        <div class="persona-desc">영어유치원 입학을 앞두고 있다. 주변 엄마들에게 물어봤지만 의견이 제각각이다. 직접 학원 설명회를 다닐 시간이 없고, 맘카페 정보는 믿기 어렵다. "우리 동네 영어유치원 중에 실제 아이들이 많이 다니는 곳이 어딘지, 다니고 나서 어떤지"를 알고 싶다. 지금 그 정보를 얻을 방법이 없다.</div>
+        <div class="persona-name">핵심 페르소나 — 지연, 36세, 맞벌이 워킹맘</div>
+        <div class="persona-desc">송파구 초3 아이를 두고 있다. 수학은 잘하는 것 같은데 영어를 어떻게 시작할지 모른다. 맘카페는 의견이 제각각이고 설명회 갈 시간도 없다. "우리 동네 초3, 영어 잘하는 아이들이 실제로 어떻게 하는지"를 알고 싶다. 지금 그 정보를 얻을 방법이 없다.</div>
       </div>
     </div>
 
@@ -357,38 +371,40 @@
       <p>부모가 직접 입력한 익명 데이터를 집계해 학습 패턴 통계를 제공한다. 학원 추천 서비스가 아니다. 광고 기반 순위도 아니다. <strong>부모의 데이터를, 부모를 위한 통계로.</strong></p>
 
       <div class="flow">
-        <div class="flow-step">① 내 아이 데이터 입력<br/><span style="font-weight:400;color:#3b82f6">1~2분 설문</span></div>
+        <div class="flow-step">① 내 아이 데이터 입력<br/><span style="font-weight:400;color:#3b82f6">1~2분 설문 (무로그인)</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step">② 통계 열람 권한<br/><span style="font-weight:400;color:#3b82f6">Glassdoor 모델</span></div>
+        <div class="flow-step">② 통계 즉시 열람<br/><span style="font-weight:400;color:#3b82f6">Glassdoor 모델</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step">③ 지역·학년·과목 필터<br/><span style="font-weight:400;color:#3b82f6">내 상황에 맞게</span></div>
+        <div class="flow-step">③ 공유하면 더 보여요<br/><span style="font-weight:400;color:#3b82f6">3명→전과목, 5명→타지역</span></div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step">④ 근처 학원 + 실제 통계<br/><span style="font-weight:400;color:#3b82f6">데이터 기반 결정</span></div>
+        <div class="flow-step">④ 학원 지도 + 통계<br/><span style="font-weight:400;color:#3b82f6">데이터 기반 결정</span></div>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h4>📊 학습 패턴 통계</h4>
+          <h4>📊 통계 카드 8종</h4>
           <ul>
-            <li>과목별 잘하는 아이들의 공부 시간 분포</li>
-            <li>선행 수준 분포 (수학 몇 학기 선행?)</li>
-            <li>학원 vs 자기주도 비율</li>
-            <li>영어유치원 → 이후 영어 유지 비율</li>
+            <li>과목 분포 (어떤 과목을 잘하는 아이가 많나)</li>
+            <li>과목별 주간 시간 비중</li>
+            <li>수학 패턴 (공부 시간, 학원 이용률, 선행 수준 분포)</li>
+            <li>영어 / 국어·논술 / 과학 / 코딩·SW 학습 패턴</li>
+            <li>예체능 패턴 (종목 분포, 주 횟수)</li>
+            <li>모든 카드에 응답자 수(n) 항상 표시</li>
           </ul>
         </div>
         <div class="card">
-          <h4>📍 위치 기반 학원 디렉토리</h4>
+          <h4>📍 학원 디렉토리 & 지도</h4>
           <ul>
-            <li>내 위치 기준 근처 학원 목록</li>
-            <li>학원별 실제 응답자 수 표시</li>
-            <li>영어유치원 전용 필터</li>
+            <li>지역·학년 필터 기반 학원 핀 지도</li>
+            <li>학원별 응답자 수 + 과목 강점 비율</li>
+            <li>네이버 지도 등록 정보 연결 (등록된 경우)</li>
             <li>공공데이터 기반 (광고 아님)</li>
           </ul>
         </div>
       </div>
 
       <div class="risk-note">
-        <strong>⚡ 설계 원칙:</strong> "잘하는 아이들"의 기준은 부모가 과목별로 직접 선택한다. "상위권이냐"고 묻지 않는다. 본인이 자신 있는 과목만 입력 — 편향을 줄이고 설문 피로도를 낮춘다. 모든 통계 카드에는 응답자 수(n)를 항상 표시해 신뢰도를 투명하게 공개한다.
+        <strong>⚡ 설계 원칙:</strong> "잘하는 아이들"의 기준은 부모가 과목별로 직접 선택한다. "상위권이냐"고 묻지 않는다. 선행 수준은 수집하지 않는다 — 경쟁·압박 유발 우려. 본인이 자신 있는 과목만 입력 — 편향을 줄이고 설문 피로도를 낮춘다. 모든 통계 카드에는 응답자 수(n)를 항상 표시해 신뢰도를 투명하게 공개한다.
       </div>
     </div>
 
@@ -434,7 +450,7 @@
             <td>접근성</td>
             <td>네트워크 필요</td>
             <td>누구나</td>
-            <td class="yes">입력 → 즉시 열람</td>
+            <td class="yes">설문 입력 → 즉시 열람</td>
           </tr>
         </tbody>
       </table>
@@ -469,40 +485,101 @@
 
       <div class="grid-2" style="margin-top:20px">
         <div class="card">
-          <h4>📬 리포트 인센티브</h4>
-          <p style="margin-bottom:8px">"설문 입력하면 <strong>내 아이 비교 리포트</strong>를 드려요"</p>
+          <h4>📬 개인 리포트 인센티브</h4>
+          <p style="margin-bottom:8px">"설문 입력하면 <strong>주변 파악 리포트</strong>를 드려요"</p>
           <ul>
-            <li>추상적인 "통계 보기"보다 구체적인 가치 제안</li>
-            <li>이메일 수집 → CRM 자산으로 전환</li>
-            <li>학기마다 재입력 → 업데이트 리포트 발송</li>
+            <li>리포트 목적: 내 아이 확인이 아닌 "주변 파악"</li>
+            <li>이메일로는 티저만 발송 → 풀 리포트는 서비스에서 열람</li>
+            <li>n&lt;15이면 대기 화면 + 예상 완료 기간 표시</li>
+            <li>n≥15 달성 시 이메일로 재유입 트리거</li>
           </ul>
         </div>
         <div class="card">
           <h4>🔗 공유 바이럴 루프</h4>
-          <p style="margin-bottom:8px"><strong>3명 공유 시 상세 리포트</strong> 즉시 제공</p>
+          <p style="margin-bottom:8px">공유 수에 따라 <strong>열람 권한이 확장</strong>되는 구조</p>
           <ul>
-            <li>맘카페/카카오 공유 특성 최대 활용</li>
-            <li>"나 이거 써봤는데 좋더라" 신뢰 기반 확산</li>
-            <li>공유자 추적 → 리포트 혜택 자동 지급</li>
+            <li>3명 공유 완료 → 전 과목 통계 + 타 과목 잘하는 아이 패턴</li>
+            <li>5명 공유 완료 → 타 지역 데이터 비교</li>
+            <li>맘카페/카카오 공유 행동 패턴에 최적화</li>
+            <li>ref 파라미터 추적 → 카운트 자동 업데이트</li>
           </ul>
         </div>
       </div>
 
       <div class="callout" style="margin-top:20px">
-        <strong>리포트 발송 2단계 전략</strong><br/>
-        Phase 1 (초기, 데이터 부족): "📬 리포트 1순위 예약 완료 — 송파 초5 수학 데이터가 모이면 가장 먼저 받아요"<br/>
-        Phase 2 (n≥15 충족): 즉시 개인화 리포트 발송<br/>
-        <span style="font-size:13px;opacity:0.8">→ 초기 참여자는 "우리 지역 데이터를 처음 만드는 사람"으로 포지셔닝 — 기대감과 소속감 동시에</span>
+        <strong>공유 티어 구조</strong><br/>
+        <table class="tier-table" style="margin-top:10px;background:white;border-radius:8px;overflow:hidden">
+          <thead>
+            <tr>
+              <th>단계</th>
+              <th>조건</th>
+              <th>열람 범위</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>기본</td>
+              <td>설문 완료</td>
+              <td>내 아이 강점 과목 통계</td>
+            </tr>
+            <tr>
+              <td>1단계</td>
+              <td>공유 링크로 3명 완료</td>
+              <td>전 과목 통계 + 타 과목 잘하는 아이 패턴</td>
+            </tr>
+            <tr>
+              <td>2단계</td>
+              <td>공유 링크로 5명 완료</td>
+              <td>타 지역 데이터 비교</td>
+            </tr>
+          </tbody>
+        </table>
+        <span style="font-size:13px;opacity:0.8">콜드스타트 초기에는 전체 공개 → 데이터 충분해지면 티어 적용</span>
       </div>
 
       <div style="margin-top:20px;background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:18px 20px;">
-        <h4 style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:12px">📊 리포트 샘플</h4>
-        <div style="font-size:13px;color:#334155;line-height:1.9">
-          <strong>송파구 초5 · 수학 잘하는 아이들 비교 (n=23)</strong><br/>
-          우리 아이 주 공부 시간: <strong>2시간</strong> &nbsp;|&nbsp; 같은 조건 평균: <strong>2.3시간</strong><br/>
-          우리 아이 선행 수준: <strong>1학기</strong> &nbsp;|&nbsp; 같은 조건 상위 30%: <strong>2학기 이상</strong><br/>
-          학원 이용: <strong>주 3회</strong> &nbsp;|&nbsp; 같은 조건 평균: <strong>주 2.8회</strong>
+        <h4 style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:12px">📊 리포트 샘플 (설문 완료 즉시)</h4>
+        <div style="font-size:13px;color:#334155;line-height:2">
+          <strong>송파구 초3 · 전체 응답자 n=43명</strong><br/>
+          수학 잘하는 아이 &nbsp;<span style="background:#dbeafe;padding:2px 8px;border-radius:4px">████████░░</span>&nbsp; <strong>58%</strong> (25명)<br/>
+          영어 잘하는 아이 &nbsp;<span style="background:#dbeafe;padding:2px 8px;border-radius:4px">█████░░░░░</span>&nbsp; <strong>44%</strong> (19명)<br/>
+          예체능 강점 아이 &nbsp;<span style="background:#dbeafe;padding:2px 8px;border-radius:4px">███░░░░░░░</span>&nbsp; <strong>31%</strong> (13명)<br/>
+          <span style="color:#2563eb;font-weight:500;margin-top:8px;display:block">→ 우리 아이(수학 강점)는 이 지역 이 학년에서 58% 그룹에 속합니다.</span>
         </div>
+      </div>
+    </div>
+
+    <!-- AUTHENTICATION -->
+    <div class="section">
+      <div class="section-label">UX & Authentication Design</div>
+      <h2>로그인 없이 시작, 권한은 자연스럽게</h2>
+      <p>설문 진입 마찰을 최소화하기 위해 로그인 없이 기기 토큰 기반으로 운영한다. 로그인 전환은 사용자가 가치를 느끼는 두 순간에만 제안한다.</p>
+
+      <div class="flow" style="margin:20px 0">
+        <div class="flow-step">설문 완료<br/><span style="font-weight:400;color:#3b82f6">기기 토큰 발급</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">강점 과목 통계 열람<br/><span style="font-weight:400;color:#3b82f6">즉시</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">공유 링크 생성<br/><span style="font-weight:400;color:#3b82f6">이메일 선택 수집</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">3명 완료 시<br/><span style="font-weight:400;color:#3b82f6">로그인 전환 제안 A</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>🔑 로그인 전환 시점 A</h4>
+          <p>공유 3명 완료 직후 — 열람 권한이 막 열린 순간.<br/>
+          <em style="color:#64748b">"이 권한을 다른 기기에서도 유지하려면 저장하세요"</em></p>
+        </div>
+        <div class="card">
+          <h4>🔑 로그인 전환 시점 C</h4>
+          <p>n≥15 알림 이메일 링크로 재방문 시 — 이미 이메일로 들어온 상태.<br/>
+          <em style="color:#64748b">"계정으로 저장할래요?"</em></p>
+        </div>
+      </div>
+
+      <div class="risk-note" style="margin-top:16px">
+        <strong>⚡ 기기 바뀌면?</strong> 토큰을 잃어 권한을 못 찾는다 — 이 불편을 감수하는 대신 설문 진입 마찰을 제거한다. 로그인 전환 시점에 안내해 계정 저장을 유도한다.
       </div>
     </div>
 
@@ -513,7 +590,7 @@
       <div class="metrics">
         <div class="metric">
           <div class="metric-value">500명</div>
-          <div class="metric-label">Phase 1 목표 응답자<br/>(강남/송파/분당)</div>
+          <div class="metric-label">3개월 목표 응답자<br/>(강남/송파/분당)</div>
         </div>
         <div class="metric">
           <div class="metric-value">70%+</div>
@@ -532,17 +609,17 @@
         <div class="card">
           <h4>사용자 성공 지표</h4>
           <ul>
-            <li>설문 완료 후 통계 페이지 체류 시간</li>
-            <li>재방문율 (학기 초 급증 여부)</li>
-            <li>입력 후 학원 디렉토리 클릭률</li>
+            <li>설문 완료 후 통계 카드 체류 시간 2분+</li>
+            <li>공유 기능 사용률 설문 완료자의 20%+</li>
+            <li>n≥15 알림 이메일 클릭률 30%+</li>
           </ul>
         </div>
         <div class="card">
           <h4>데이터 품질 지표</h4>
           <ul>
-            <li>n≥15 이상 통계 카드 수</li>
-            <li>지역별 세그먼트 커버리지</li>
-            <li>중복 제출 비율 (기기 기반 탐지)</li>
+            <li>n≥15 활성 통계 카드 수</li>
+            <li>공유 링크 경유 설문 완료 비율 30%+</li>
+            <li>중복 제출 비율 5% 미만</li>
           </ul>
         </div>
       </div>
@@ -556,18 +633,23 @@
         <div class="scope-box in">
           <h4>✅ MVP에 포함</h4>
           <ul>
-            <li>강남 / 송파 / 분당 지역</li>
+            <li>통계 서비스: 강남 / 송파 / 판교</li>
+            <li>설문 수집: 전국 시도구 (공유 유입 전국 대응)</li>
+            <li>비서비스 지역 → "순차 오픈 예정" 안내 + 서비스 지역 통계 미리보기 1개</li>
             <li>미취학·초등 대상</li>
-            <li>1~2분 설문 (잘하는 과목 선택형)</li>
-            <li>학원 디렉토리 (공공데이터 + 지오코딩)</li>
-            <li>통계 카드 (n수 항상 표시)</li>
-            <li>n&lt;5 완전 비공개 (프라이버시)</li>
-            <li>기기 기반 중복 방지</li>
-            <li>개인정보처리방침 + 동의 체크박스</li>
+            <li>무로그인 설문 (기기 토큰 발급)</li>
+            <li>통계 카드 8종 (수학/영어/국어·논술/<br/>과학/코딩·SW/예체능 + 분포/시간비중)</li>
+            <li>개인 리포트 (내 아이 포지셔닝 + 타 과목 패턴)</li>
+            <li>n&lt;5 완전 비공개 / n 5~14 경고 뱃지</li>
+            <li>n&lt;15 대기 화면 + 예상 완료 기간 표시</li>
+            <li>공유 티어 (3명→전과목, 5명→타지역)</li>
+            <li>선택적 이메일 수집 + n≥15 알림</li>
+            <li>로그인 전환 (공유 완료 후 / 이메일 재방문)</li>
+            <li>학원 지도 (공공데이터 + 카카오 지오코딩)</li>
+            <li>학원 카드 → 네이버 지도 연결</li>
+            <li>운영자 학원 승인 대시보드</li>
             <li>광고 슬롯 (데이터와 명확히 구분)</li>
-            <li>리포트 예약 + 이메일 수집</li>
-            <li>3명 공유 시 상세 리포트 지급</li>
-            <li>n≥15 달성 시 예약자 자동 발송</li>
+            <li>개인정보처리방침 + 동의 체크박스 (PIPA)</li>
           </ul>
         </div>
         <div class="scope-box out">
@@ -575,17 +657,19 @@
           <ul>
             <li>전국 지역 확장</li>
             <li>중학교 / 고등학교</li>
-            <li>소셜 로그인 / 계정 시스템</li>
-            <li>세그먼트 자동 롤업</li>
+            <li>학기별 재입력 → 변화 비교</li>
+            <li>다자녀 관리</li>
+            <li>세그먼트 자동 롤업 (n 부족 시)</li>
             <li>종단 데이터 추적 (연간 변화)</li>
             <li>B2B 데이터 라이선싱</li>
             <li>앱 출시 (웹 우선)</li>
+            <li>선행 수준 표시 (경쟁·압박 유발)</li>
           </ul>
         </div>
       </div>
 
       <div class="risk-note">
-        <strong>⚡ 치킨앤에그 전략:</strong> MVP 초기 100명은 통계 카드 노출이 어렵다 (지역×학년 분산 시 n&lt;15). 초기에는 구글폼으로 데이터 먼저 수집 → 300~500명 확보 후 플랫폼 오픈. 맘카페·당근 커뮤니티 집중 공략으로 특정 세그먼트(송파 초등 수학 등) 먼저 채운다.
+        <strong>⚡ 치킨앤에그 전략:</strong> MVP 초기는 통계 카드 노출이 어렵다 (지역×학년 분산 시 n&lt;15). 구글폼으로 데이터 300명 선수집 → 플랫폼 오픈. 맘카페·당근 커뮤니티 집중 공략으로 특정 세그먼트(송파 초3 수학 등) 먼저 채워 n≥15 조기 달성.
       </div>
     </div>
 
@@ -593,7 +677,8 @@
     <div class="section">
       <div class="section-label">Revenue Model</div>
       <h2>수익 구조</h2>
-      <div class="grid-3">
+      <p style="font-size:14px;color:#334155;margin-bottom:16px">MVP는 <strong>광고 단일 모델</strong>. 통계 카드·학원 지도·개인 리포트 모두 무료. 프리미엄 과금은 MVP 이후 검토 (다자녀 관리, 학기별 추적 등).</p>
+      <div class="grid-2">
         <div class="card">
           <h4>📰 네이티브 광고</h4>
           <p>피드 중간 삽입. 교육 콘텐츠/서비스 광고. 데이터 카드와 시각적으로 명확히 구분.</p>
@@ -601,10 +686,6 @@
         <div class="card">
           <h4>🖼 배너 광고</h4>
           <p>교육 관련 브랜드 노출. 학기 초/입학 시즌 단가 프리미엄 기대.</p>
-        </div>
-        <div class="card">
-          <h4>📦 데이터 라이선싱 (이후)</h4>
-          <p>익명 집계 데이터를 교육 연구기관·출판사에 제공. 개인 식별 불가 수준.</p>
         </div>
       </div>
       <p style="font-size:13px;color:var(--muted);margin-top:4px">핵심 원칙: 광고가 데이터 통계에 어떠한 영향도 미치지 않는다. 학원 업체의 광고비가 통계 순위에 반영되는 구조 일절 금지.</p>
@@ -642,8 +723,8 @@
   </div><!-- /content -->
 
   <div class="footer">
-    <span>StudyRoute · Product Brief v1.1 · Draft</span>
-    <span>작성: Mary (BMAD Analyst) · 2026-04-21</span>
+    <span>StudyRoute · Product Brief v1.1 · 2026-04-22</span>
+    <span>작성: SUE · 업데이트: 2026-04-22</span>
   </div>
 
 </div>
